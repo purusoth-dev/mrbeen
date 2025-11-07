@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Mr Been Travels - Reliable Local, Airport & Outstation Taxi Service",
+	description = "Book reliable cabs in Chennai for local rides, airport pickup & drop, outstation trips. Professional drivers, 24x7 support. Cost-effective taxi service across Tamil Nadu, Pondicherry, Kerala & Andhra."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- SEO Meta Tags -->
+		<meta name="keywords" content="Chennai taxi, cab service Chennai, airport taxi Chennai, outstation cab, local taxi, Mr Been Travels, Chennai to Tamil Nadu, taxi booking" />
+		<meta name="author" content="Mr Been Travels" />
+		<meta name="robots" content="index, follow" />
+
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="en_IN" />
+
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<title>{title}</title>
+	</head>
+	<body class="font-sans antialiased bg-white text-gray-900">
+		<slot />
+	</body>
+</html>

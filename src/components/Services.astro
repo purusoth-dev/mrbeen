@@ -1,0 +1,85 @@
+---
+const services = [
+	{
+		icon: "🏙️",
+		title: "Local Rides",
+		description: "Quick and reliable transport within Chennai city. Perfect for daily commutes, shopping trips, and local errands.",
+		features: ["Affordable rates", "Clean vehicles", "Experienced drivers"]
+	},
+	{
+		icon: "✈️",
+		title: "Airport Pickup & Drop",
+		description: "Hassle-free airport transfers with on-time service. Available 24x7 for arrivals and departures.",
+		features: ["Flight tracking", "Meet & greet", "Luggage assistance"]
+	},
+	{
+		icon: "🛣️",
+		title: "Outstation Trips",
+		description: "One-way and round trip services to destinations across Tamil Nadu, Pondicherry, Kerala, and Andhra.",
+		features: ["Long distance comfort", "Multiple stops", "Fixed pricing"]
+	},
+	{
+		icon: "⏱️",
+		title: "Hourly Rentals",
+		description: "Book a cab for flexible hours. Ideal for business meetings, city tours, or running multiple errands.",
+		features: ["4/8/12 hour packages", "No hidden charges", "Professional chauffeur"]
+	},
+	{
+		icon: "🏖️",
+		title: "Weekend Getaways",
+		description: "Explore nearby destinations with our weekend packages. Perfect for family trips and quick vacations.",
+		features: ["Customizable routes", "Tourist guide available", "Best rates"]
+	},
+	{
+		icon: "🛕",
+		title: "Temple Tours",
+		description: "Spiritual journeys to famous temples. Comfortable and respectful transportation for pilgrimage trips.",
+		features: ["Multi-temple packages", "Devotee-friendly", "Punctual service"]
+	}
+];
+---
+
+<section id="services" class="py-20 bg-gray-50">
+	<div class="container mx-auto px-4">
+		<!-- Section Header -->
+		<div class="text-center mb-16">
+			<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+				Our <span class="text-yellow-500">Services</span>
+			</h2>
+			<p class="text-xl text-gray-600 max-w-2xl mx-auto">
+				Comprehensive cab services tailored to meet all your transportation needs in and around Chennai
+			</p>
+		</div>
+
+		<!-- Services Grid -->
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{services.map((service) => (
+				<div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow p-8 border-t-4 border-yellow-500">
+					<div class="text-5xl mb-4">{service.icon}</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
+					<p class="text-gray-600 mb-4">{service.description}</p>
+					<ul class="space-y-2">
+						{service.features.map((feature) => (
+							<li class="flex items-center text-gray-700">
+								<svg class="w-5 h-5 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								{feature}
+							</li>
+						))}
+					</ul>
+				</div>
+			))}
+		</div>
+
+		<!-- CTA -->
+		<div class="text-center mt-12">
+			<a
+				href="#booking"
+				class="inline-block px-8 py-4 bg-yellow-500 text-gray-900 font-bold rounded-lg hover:bg-yellow-600 transition shadow-lg text-lg"
+			>
+				Book a Service Now
+			</a>
+		</div>
+	</div>
+</section>

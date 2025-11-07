@@ -1,0 +1,110 @@
+---
+const reasons = [
+	{
+		icon: "👨‍✈️",
+		title: "Professional Drivers",
+		description: "Experienced, verified, and courteous drivers with extensive knowledge of routes"
+	},
+	{
+		icon: "💰",
+		title: "Best Prices",
+		description: "Competitive and transparent pricing with no hidden charges"
+	},
+	{
+		icon: "🚗",
+		title: "Clean & Well-Maintained",
+		description: "Regular maintenance and sanitization of all vehicles"
+	},
+	{
+		icon: "🕐",
+		title: "24×7 Availability",
+		description: "Round-the-clock service for all your transportation needs"
+	},
+	{
+		icon: "🛡️",
+		title: "Safe & Secure",
+		description: "GPS-enabled vehicles with verified drivers for your safety"
+	},
+	{
+		icon: "⚡",
+		title: "Quick Response",
+		description: "Fast booking confirmation and prompt pickup service"
+	},
+	{
+		icon: "📱",
+		title: "Easy Booking",
+		description: "Book via call, WhatsApp, or our online form in minutes"
+	},
+	{
+		icon: "🎯",
+		title: "Flexible Packages",
+		description: "Customizable trip plans to suit your specific requirements"
+	}
+];
+---
+
+<section id="why-choose-us" class="py-20 bg-white">
+	<div class="container mx-auto px-4">
+		<!-- Section Header -->
+		<div class="text-center mb-16">
+			<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+				Why Choose <span class="text-yellow-500">Mr Been</span>
+			</h2>
+			<p class="text-xl text-gray-600 max-w-2xl mx-auto">
+				Your trusted partner for comfortable and reliable transportation in Chennai
+			</p>
+		</div>
+
+		<!-- Reasons Grid -->
+		<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+			{reasons.map((reason) => (
+				<div class="text-center group">
+					<div class="mb-4 text-6xl transform group-hover:scale-110 transition-transform">
+						{reason.icon}
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">{reason.title}</h3>
+					<p class="text-gray-600">{reason.description}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Stats Section -->
+		<div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+			<div class="text-center">
+				<div class="text-4xl md:text-5xl font-bold text-yellow-500 mb-2">10K+</div>
+				<div class="text-gray-600 font-medium">Happy Customers</div>
+			</div>
+			<div class="text-center">
+				<div class="text-4xl md:text-5xl font-bold text-yellow-500 mb-2">50+</div>
+				<div class="text-gray-600 font-medium">Professional Drivers</div>
+			</div>
+			<div class="text-center">
+				<div class="text-4xl md:text-5xl font-bold text-yellow-500 mb-2">24/7</div>
+				<div class="text-gray-600 font-medium">Service Hours</div>
+			</div>
+			<div class="text-center">
+				<div class="text-4xl md:text-5xl font-bold text-yellow-500 mb-2">100+</div>
+				<div class="text-gray-600 font-medium">Destinations Covered</div>
+			</div>
+		</div>
+
+		<!-- Testimonial -->
+		<div class="mt-16 max-w-4xl mx-auto">
+			<div class="bg-yellow-50 rounded-2xl p-8 md:p-12 border-l-4 border-yellow-500">
+				<div class="flex items-start space-x-4">
+					<div class="text-4xl md:text-6xl text-yellow-500">"</div>
+					<div>
+						<p class="text-lg md:text-xl text-gray-700 italic mb-4">
+							Excellent service! The driver was punctual, professional, and the car was spotless.
+							I've used Mr Been Travels for both airport transfers and outstation trips. Highly recommended for anyone looking for reliable cab service in Chennai.
+						</p>
+						<div>
+							<p class="font-bold text-gray-900">Rajesh Kumar</p>
+							<p class="text-gray-600">Regular Customer</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

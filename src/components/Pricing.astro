@@ -1,0 +1,158 @@
+---
+const pricingPlans = [
+	{
+		category: "Local Rides",
+		icon: "🏙️",
+		description: "Within Chennai city limits",
+		plans: [
+			{ vehicle: "Sedan", rate: "₹12/km", minimum: "₹150 minimum" },
+			{ vehicle: "SUV", rate: "₹16/km", minimum: "₹200 minimum" },
+			{ vehicle: "Tempo Traveller", rate: "₹25/km", minimum: "₹500 minimum" }
+		],
+		features: ["AC vehicles", "GPS tracked", "Experienced drivers"]
+	},
+	{
+		category: "Airport Transfer",
+		icon: "✈️",
+		description: "Chennai Airport pickup & drop",
+		plans: [
+			{ vehicle: "Sedan", rate: "₹600", minimum: "Fixed price" },
+			{ vehicle: "SUV", rate: "₹800", minimum: "Fixed price" },
+			{ vehicle: "Tempo Traveller", rate: "₹1,500", minimum: "Fixed price" }
+		],
+		features: ["Flight tracking", "Free waiting time", "Meet & greet"],
+		popular: true
+	},
+	{
+		category: "Outstation",
+		icon: "🛣️",
+		description: "One-way & round trip",
+		plans: [
+			{ vehicle: "Sedan", rate: "₹11/km", minimum: "300 km/day minimum" },
+			{ vehicle: "SUV", rate: "₹14/km", minimum: "300 km/day minimum" },
+			{ vehicle: "Tempo Traveller", rate: "₹22/km", minimum: "300 km/day minimum" }
+		],
+		features: ["Driver allowance included", "Toll & parking extra", "Flexible stops"]
+	}
+];
+---
+
+<section id="pricing" class="py-20 bg-gray-50">
+	<div class="container mx-auto px-4">
+		<!-- Section Header -->
+		<div class="text-center mb-16">
+			<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+				Transparent <span class="text-yellow-500">Pricing</span>
+			</h2>
+			<p class="text-xl text-gray-600 max-w-2xl mx-auto">
+				No hidden charges. What you see is what you pay.
+			</p>
+		</div>
+
+		<!-- Pricing Cards -->
+		<div class="grid md:grid-cols-3 gap-8 mb-12">
+			{pricingPlans.map((plan) => (
+				<div class={`bg-white rounded-xl shadow-lg overflow-hidden ${plan.popular ? 'ring-4 ring-yellow-500 transform md:scale-105' : ''}`}>
+					{plan.popular && (
+						<div class="bg-yellow-500 text-gray-900 text-center py-2 font-bold text-sm">
+							MOST POPULAR
+						</div>
+					)}
+
+					<div class="p-8">
+						<!-- Category Header -->
+						<div class="text-center mb-6">
+							<div class="text-5xl mb-3">{plan.icon}</div>
+							<h3 class="text-2xl font-bold text-gray-900 mb-2">{plan.category}</h3>
+							<p class="text-gray-600">{plan.description}</p>
+						</div>
+
+						<!-- Pricing Table -->
+						<div class="space-y-3 mb-6">
+							{plan.plans.map((item) => (
+								<div class="flex justify-between items-center py-3 border-b border-gray-200">
+									<span class="font-medium text-gray-700">{item.vehicle}</span>
+									<div class="text-right">
+										<span class="text-lg font-bold text-gray-900">{item.rate}</span>
+										{item.minimum && (
+											<p class="text-xs text-gray-500">{item.minimum}</p>
+										)}
+									</div>
+								</div>
+							))}
+						</div>
+
+						<!-- Features -->
+						<ul class="space-y-2 mb-6">
+							{plan.features.map((feature) => (
+								<li class="flex items-center text-gray-700 text-sm">
+									<svg class="w-5 h-5 text-yellow-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+									</svg>
+									{feature}
+								</li>
+							))}
+						</ul>
+
+						<!-- CTA Button -->
+						<a
+							href="#booking"
+							class={`block text-center py-3 rounded-lg font-bold transition ${
+								plan.popular
+									? 'bg-yellow-500 text-gray-900 hover:bg-yellow-600'
+									: 'bg-gray-900 text-white hover:bg-gray-800'
+							}`}
+						>
+							Book Now
+						</a>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<!-- Hourly Rental Pricing -->
+		<div class="bg-white rounded-xl shadow-lg p-8">
+			<div class="flex items-center justify-center mb-6">
+				<span class="text-4xl mr-3">⏱️</span>
+				<h3 class="text-3xl font-bold text-gray-900">Hourly Rental Packages</h3>
+			</div>
+
+			<div class="overflow-x-auto">
+				<table class="w-full">
+					<thead>
+						<tr class="border-b-2 border-gray-300">
+							<th class="text-left py-3 px-4 font-bold text-gray-900">Package</th>
+							<th class="text-center py-3 px-4 font-bold text-gray-900">Sedan</th>
+							<th class="text-center py-3 px-4 font-bold text-gray-900">SUV</th>
+							<th class="text-center py-3 px-4 font-bold text-gray-900">Tempo Traveller</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-b border-gray-200 hover:bg-gray-50">
+							<td class="py-4 px-4 font-medium text-gray-700">4 Hours / 40 km</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹1,200</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹1,600</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹2,500</td>
+						</tr>
+						<tr class="border-b border-gray-200 hover:bg-gray-50">
+							<td class="py-4 px-4 font-medium text-gray-700">8 Hours / 80 km</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹2,200</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹2,800</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹4,500</td>
+						</tr>
+						<tr class="hover:bg-gray-50">
+							<td class="py-4 px-4 font-medium text-gray-700">12 Hours / 120 km</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹3,000</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹3,800</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹6,000</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<p class="text-sm text-gray-600 mt-6 text-center">
+				Extra hours and kilometers charged proportionally. Toll, parking, and permit charges extra.
+			</p>
+		</div>
+	</div>
+</section>

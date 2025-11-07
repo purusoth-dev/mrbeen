@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Yellow Background Circle -->
+  <circle cx="32" cy="32" r="32" fill="#EAB308"/>
+  
+  <!-- Taxi Icon (Black) -->
+  <g fill="#000000">
+    <!-- Taxi Body -->
+    <path d="M42.5 24c-.8-1.5-2.3-2.5-4-2.5h-13c-1.7 0-3.2 1-4 2.5L18 32v12c0 .8.7 1.5 1.5 1.5h2c.8 0 1.5-.7 1.5-1.5v-1.5h18V44c0 .8.7 1.5 1.5 1.5h2c.8 0 1.5-.7 1.5-1.5V32l-3.5-8z"/>
+    
+    <!-- Left Wheel -->
+    <circle cx="25" cy="40" r="2.5" fill="#EAB308"/>
+    
+    <!-- Right Wheel -->
+    <circle cx="39" cy="40" r="2.5" fill="#EAB308"/>
+    
+    <!-- Windshield -->
+    <path d="M22 32l2-5h16l2 5H22z" fill="#EAB308" opacity="0.5"/>
+    
+    <!-- Taxi Sign on Top -->
+    <rect x="27" y="18" width="10" height="3" rx="1" fill="#000000"/>
+    <text x="32" y="20" font-size="2.5" font-weight="bold" text-anchor="middle" fill="#EAB308">TAXI</text>
+  </g>
+</svg>

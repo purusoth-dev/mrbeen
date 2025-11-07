@@ -1,0 +1,122 @@
+---
+const faqs = [
+	{
+		question: "How can I book a cab?",
+		answer: "You can book a cab by calling us at +91 9360615120, messaging us on WhatsApp, or filling out our online booking form on this website. We'll confirm your booking within minutes."
+	},
+	{
+		question: "Are your drivers verified?",
+		answer: "Yes, all our drivers are thoroughly verified with background checks, valid licenses, and extensive driving experience. They are trained to provide professional and courteous service."
+	},
+	{
+		question: "What payment methods do you accept?",
+		answer: "We accept cash, UPI payments, bank transfers, and digital wallets. Payment can be made after the trip or in advance as per your preference."
+	},
+	{
+		question: "Can I cancel or modify my booking?",
+		answer: "Yes, you can cancel or modify your booking by contacting us. For cancellations made at least 2 hours before pickup, there are no charges. Later cancellations may incur minimal fees."
+	},
+	{
+		question: "Are tolls and parking charges included?",
+		answer: "Our quoted prices include driver allowance and fuel. Toll charges, parking fees, and interstate permits are additional and will be charged as per actuals."
+	},
+	{
+		question: "Do you provide outstation round trips?",
+		answer: "Yes, we provide both one-way and round trip services for outstation travel. Round trips are charged based on the total distance covered, with a minimum of 300 km per day."
+	},
+	{
+		question: "What if my flight is delayed?",
+		answer: "For airport pickups, we track your flight status. We provide 30 minutes of free waiting time after flight landing. Extended waiting may incur minimal charges."
+	},
+	{
+		question: "Can I make multiple stops during my trip?",
+		answer: "Yes, you can make multiple stops during your journey. For local trips, brief stops are included. For outstation trips, we offer flexible itineraries to accommodate your plans."
+	},
+	{
+		question: "What safety measures do you follow?",
+		answer: "All our vehicles are regularly sanitized, GPS-enabled, and well-maintained. Our drivers follow safety protocols, and we ensure comfortable and secure travel for all passengers."
+	},
+	{
+		question: "Do you offer corporate services?",
+		answer: "Yes, we provide dedicated corporate transportation services with flexible billing, monthly packages, and priority booking for businesses. Contact us for corporate rates and contracts."
+	}
+];
+---
+
+<section id="faq" class="py-20 bg-gray-50">
+	<div class="container mx-auto px-4">
+		<!-- Section Header -->
+		<div class="text-center mb-16">
+			<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+				Frequently Asked <span class="text-yellow-500">Questions</span>
+			</h2>
+			<p class="text-xl text-gray-600 max-w-2xl mx-auto">
+				Got questions? We've got answers!
+			</p>
+		</div>
+
+		<!-- FAQ Accordion -->
+		<div class="max-w-4xl mx-auto space-y-4">
+			{faqs.map((faq, index) => (
+				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+					<button
+						class="faq-question w-full text-left px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition"
+						data-index={index}
+					>
+						<span class="font-semibold text-gray-900 pr-8">{faq.question}</span>
+						<svg
+							class="faq-icon w-6 h-6 text-yellow-500 flex-shrink-0 transform transition-transform"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+						</svg>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5">
+						<p class="text-gray-600 leading-relaxed">{faq.answer}</p>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<!-- Still Have Questions -->
+		<div class="mt-12 text-center">
+			<p class="text-lg text-gray-600 mb-4">Still have questions?</p>
+			<a
+				href="https://wa.me/919360615120"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center space-x-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition"
+			>
+				<span>💬</span>
+				<span>Chat with us on WhatsApp</span>
+			</a>
+		</div>
+	</div>
+</section>
+
+<script>
+	// FAQ Accordion functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const faqQuestions = document.querySelectorAll('.faq-question');
+
+		faqQuestions.forEach((question) => {
+			question.addEventListener('click', () => {
+				const answer = question.nextElementSibling as HTMLElement;
+				const icon = question.querySelector('.faq-icon') as HTMLElement;
+
+				// Toggle current FAQ
+				const isOpen = !answer.classList.contains('hidden');
+
+				if (isOpen) {
+					answer.classList.add('hidden');
+					icon.style.transform = 'rotate(0deg)';
+				} else {
+					answer.classList.remove('hidden');
+					icon.style.transform = 'rotate(180deg)';
+				}
+			});
+		});
+	});
+</script>
