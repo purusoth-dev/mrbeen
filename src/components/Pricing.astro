@@ -16,9 +16,9 @@ const pricingPlans = [
 		icon: "✈️",
 		description: "Chennai Airport pickup & drop",
 		plans: [
-			{ vehicle: "Sedan", rate: "₹600", minimum: "Fixed price" },
-			{ vehicle: "SUV", rate: "₹800", minimum: "Fixed price" },
-			{ vehicle: "Tempo Traveller", rate: "₹1,500", minimum: "Fixed price" }
+			{ vehicle: "Sedan", rate: "₹600", minimum: "Minimum 20kms" },
+			{ vehicle: "SUV", rate: "₹900", minimum: "Minimum 20kms" },
+			{ vehicle: "Traveller", rate: "₹2,800", minimum: "Minimum 5 hours package" }
 		],
 		features: ["Flight tracking", "Free waiting time", "Meet & greet"],
 		popular: true
@@ -28,11 +28,12 @@ const pricingPlans = [
 		icon: "🛣️",
 		description: "One-way & round trip",
 		plans: [
-			{ vehicle: "Sedan", rate: "₹11/km", minimum: "300 km/day minimum" },
-			{ vehicle: "SUV", rate: "₹14/km", minimum: "300 km/day minimum" },
-			{ vehicle: "Tempo Traveller", rate: "₹22/km", minimum: "300 km/day minimum" }
+			{ vehicle: "Sedan", rate: "₹12/km", minimum: "250 km/day coverage + ₹500 driver beta" },
+			{ vehicle: "SUV", rate: "₹16/km", minimum: "250 km/day coverage + ₹600 driver beta" },
+			{ vehicle: "Tempo Traveller AC", rate: "₹22/km", minimum: "300 km/day coverage + ₹800 driver beta" },
+			{ vehicle: "Tempo Traveller NON-AC", rate: "₹21/km", minimum: "300 km/day coverage + ₹800 driver beta" }
 		],
-		features: ["Driver allowance included", "Toll & parking extra", "Flexible stops"]
+		features: ["Driver beta included", "Toll & parking extra", "Flexible stops"]
 	}
 ];
 ---
@@ -129,20 +130,20 @@ const pricingPlans = [
 					</thead>
 					<tbody>
 						<tr class="border-b border-gray-200 hover:bg-gray-50">
-							<td class="py-4 px-4 font-medium text-gray-700">4 Hours / 40 km</td>
-							<td class="text-center py-4 px-4 text-gray-900">₹1,200</td>
-							<td class="text-center py-4 px-4 text-gray-900">₹1,600</td>
+							<td class="py-4 px-4 font-medium text-gray-700">5 Hours / 50 km</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹1,400</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹1,900</td>
 							<td class="text-center py-4 px-4 text-gray-900">₹2,500</td>
 						</tr>
 						<tr class="border-b border-gray-200 hover:bg-gray-50">
 							<td class="py-4 px-4 font-medium text-gray-700">8 Hours / 80 km</td>
 							<td class="text-center py-4 px-4 text-gray-900">₹2,200</td>
-							<td class="text-center py-4 px-4 text-gray-900">₹2,800</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹3,000</td>
 							<td class="text-center py-4 px-4 text-gray-900">₹4,500</td>
 						</tr>
 						<tr class="hover:bg-gray-50">
-							<td class="py-4 px-4 font-medium text-gray-700">12 Hours / 120 km</td>
-							<td class="text-center py-4 px-4 text-gray-900">₹3,000</td>
+							<td class="py-4 px-4 font-medium text-gray-700">10 Hours / 100 km</td>
+							<td class="text-center py-4 px-4 text-gray-900">₹2,800</td>
 							<td class="text-center py-4 px-4 text-gray-900">₹3,800</td>
 							<td class="text-center py-4 px-4 text-gray-900">₹6,000</td>
 						</tr>
