@@ -53,27 +53,32 @@ const whatsappLink = "https://wa.me/919363786531?text=Hi! I would like to book a
 		<!-- Mobile Menu Button -->
 		<button
 			id="mobile-menu-button"
-			class="md:hidden text-gray-900 focus:outline-none"
+			class="md:hidden text-yellow-500 focus:outline-none hover:text-yellow-400 transition relative"
 			aria-label="Toggle menu"
 		>
-			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+			<!-- Hamburger Icon -->
+			<svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 transition-opacity duration-200">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+			</svg>
+			<!-- Close Icon -->
+			<svg id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 transition-opacity duration-200 opacity-0 absolute inset-0">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 			</svg>
 		</button>
 	</nav>
 
 	<!-- Mobile Menu -->
-	<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+	<div id="mobile-menu" class="mobile-menu md:hidden bg-black border-t border-yellow-500 overflow-hidden transition-all duration-300 ease-in-out max-h-0">
 		<div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
 			<a href="#services" class="text-gray-300 hover:text-yellow-500 transition">Services</a>
 			<a href="#tours" class="text-gray-300 hover:text-yellow-500 transition">Tours</a>
 			<a href="#pricing" class="text-gray-300 hover:text-yellow-500 transition">Pricing</a>
 			<a href="#faq" class="text-gray-300 hover:text-yellow-500 transition">FAQ</a>
 			<a href="#contact" class="text-gray-300 hover:text-yellow-500 transition">Contact</a>
-			<div class="pt-4 border-t border-gray-200 flex flex-col space-y-2">
+			<div class="pt-4 border-t border-yellow-500 flex flex-col space-y-2">
 				<a
 					href={`tel:${phone}`}
-					class="flex items-center justify-center space-x-2 px-4 py-2 border-2 border-gray-900 text-gray-900 rounded-lg hover:bg-gray-100 transition"
+					class="flex items-center justify-center space-x-2 px-4 py-2 border-2 border-yellow-500 text-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-black transition"
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
@@ -91,7 +96,7 @@ const whatsappLink = "https://wa.me/919363786531?text=Hi! I would like to book a
 				</a>
 				<a
 					href="#booking"
-					class="px-6 py-2 bg-yellow-500 text-gray-900 font-bold rounded-lg hover:bg-yellow-600 transition shadow-lg text-center"
+					class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-lg hover:bg-yellow-400 transition shadow-lg text-center"
 				>
 					Book Now
 				</a>
@@ -101,19 +106,53 @@ const whatsappLink = "https://wa.me/919363786531?text=Hi! I would like to book a
 </header>
 
 <script>
-	// Mobile menu toggle
+	// Mobile menu toggle with smooth animation
 	const menuButton = document.getElementById('mobile-menu-button');
 	const mobileMenu = document.getElementById('mobile-menu');
+	const hamburgerIcon = document.getElementById('hamburger-icon');
+	const closeIcon = document.getElementById('close-icon');
+	let isMenuOpen = false;
 
-	menuButton?.addEventListener('click', () => {
-		mobileMenu?.classList.toggle('hidden');
-	});
+	function toggleMenu() {
+		if (isMenuOpen) {
+			// Close menu
+			mobileMenu?.classList.remove('max-h-96');
+			mobileMenu?.classList.add('max-h-0');
+			// Show hamburger icon, hide close icon
+			hamburgerIcon?.classList.remove('opacity-0');
+			hamburgerIcon?.classList.add('opacity-100');
+			closeIcon?.classList.remove('opacity-100');
+			closeIcon?.classList.add('opacity-0');
+			isMenuOpen = false;
+		} else {
+			// Open menu
+			mobileMenu?.classList.remove('max-h-0');
+			mobileMenu?.classList.add('max-h-96');
+			// Hide hamburger icon, show close icon
+			hamburgerIcon?.classList.remove('opacity-100');
+			hamburgerIcon?.classList.add('opacity-0');
+			closeIcon?.classList.remove('opacity-0');
+			closeIcon?.classList.add('opacity-100');
+			isMenuOpen = true;
+		}
+	}
+
+	menuButton?.addEventListener('click', toggleMenu);
 
 	// Close mobile menu when clicking on a link
 	const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
 	mobileMenuLinks?.forEach(link => {
 		link.addEventListener('click', () => {
-			mobileMenu?.classList.add('hidden');
+			if (isMenuOpen) {
+				mobileMenu?.classList.remove('max-h-96');
+				mobileMenu?.classList.add('max-h-0');
+				// Show hamburger icon, hide close icon
+				hamburgerIcon?.classList.remove('opacity-0');
+				hamburgerIcon?.classList.add('opacity-100');
+				closeIcon?.classList.remove('opacity-100');
+				closeIcon?.classList.add('opacity-0');
+				isMenuOpen = false;
+			}
 		});
 	});
 
