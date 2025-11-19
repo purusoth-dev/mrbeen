@@ -5,54 +5,54 @@ const tours = [
 		duration: "Full Day",
 		price: "₹2,500",
 		highlights: ["Shore Temple", "Pancha Rathas", "Beach visit"],
-		image: "🏖️"
+		image: "/images/mahabalipuram.jpg"
 	},
 	{
 		destination: "Tirupati",
 		duration: "1 Day",
 		price: "₹4,500",
 		highlights: ["Tirumala Temple", "Darshan", "Local sightseeing"],
-		image: "🛕"
+		image: "/images/tirupati.jpg"
 	},
 	{
 		destination: "Pondicherry",
 		duration: "1-2 Days",
 		price: "₹5,000",
 		highlights: ["French Quarter", "Beaches", "Auroville"],
-		image: "🌊"
+		image: "/images/pondichery.jpg"
 	},
 	{
 		destination: "Yelagiri",
 		duration: "2 Days",
 		price: "₹7,500",
 		highlights: ["Hill station", "Nature Park", "Adventure activities"],
-		image: "⛰️"
+		image: "/images/yelagiri.jpg"
 	},
 	{
 		destination: "Kodaikanal",
 		duration: "3 Days",
 		price: "₹12,000",
 		highlights: ["Hill retreat", "Lakes", "Waterfalls"],
-		image: "🏔️"
+		image: "/images/kodaikanal.jpg"
 	},
 	{
 		destination: "Rameshwaram",
 		duration: "2-3 Days",
 		price: "₹15,000",
 		highlights: ["Temple visit", "Pamban Bridge", "Beach"],
-		image: "🌅"
+		image: "/images/rameshwaram.jpg"
 	}
 ];
 ---
 
-<section id="tours" class="py-20 bg-black">
+<section id="tours" class="py-20 bg-gray-50">
 	<div class="container mx-auto px-4">
 		<!-- Section Header -->
 		<div class="text-center mb-16">
-			<h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+			<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
 				Popular <span class="text-yellow-500">Tours</span>
 			</h2>
-			<p class="text-xl text-gray-300 max-w-2xl mx-auto">
+			<p class="text-xl text-gray-600 max-w-2xl mx-auto">
 				Explore the best destinations from Chennai with our affordable tour packages
 			</p>
 		</div>
@@ -61,10 +61,19 @@ const tours = [
 		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 			{tours.map((tour) => (
 				<div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 overflow-hidden border border-gray-200">
-					<!-- Tour Image/Icon -->
-					<div class="bg-gradient-to-br from-yellow-400 to-yellow-500 p-8 text-center">
-						<div class="text-7xl mb-2">{tour.image}</div>
-						<h3 class="text-2xl font-bold text-gray-900">{tour.destination}</h3>
+					<!-- Tour Image -->
+					<div class="relative h-48 overflow-hidden bg-gray-200">
+						<img 
+							src={tour.image} 
+							alt={tour.destination}
+							loading="lazy"
+							decoding="async"
+							class="w-full h-full object-cover transition-transform hover:scale-105"
+							style="background-color: #f3f4f6;"
+						/>
+						<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+							<h3 class="text-2xl font-bold text-white">{tour.destination}</h3>
+						</div>
 					</div>
 
 					<!-- Tour Details -->
@@ -97,7 +106,7 @@ const tours = [
 							</div>
 							<a
 								href="#booking"
-								class="px-6 py-2 bg-gray-900 text-white font-semibold rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition"
+								class="px-6 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-600 transition shadow-lg"
 							>
 								Book Now
 							</a>
